@@ -5,3 +5,5 @@ def bb(yjkhdkjhaskh=None,lkjdslkjdull=None, kkhdhkjhd=None,khdskjhkjdhsa=None,jk
     print('yy')
     print('xx')
 
+def cc(y):
+    return y
