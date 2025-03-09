@@ -1,0 +1,33 @@
+name: Auto Format with Ruff
+
+on:
+  push:
+    branches:
+      - main  # adjust if needed
+  pull_request:
+    branches:
+      - main  # adjust if needed
+
+jobs:
+  ruff_format:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install Ruff
+        run: pip install ruff
+
+      - name: Run Ruff Format
+        run: ruff --fix .
+
+      - name: Commit changes if any
+        uses: EndBug/add-and-commit@v9
+        with:
+          message: "Auto-format code using Ruff"
+          add: "."
